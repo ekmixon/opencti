@@ -44,10 +44,7 @@ class Dicts:
             "web-application-attack": "Web Application Attack",
             "nonstd-tcp": "Detection of a Non-Standard TCP Protocol",
         }
-        if cltype in classtypes:
-            return classtypes[cltype]
-        else:
-            return False
+        return classtypes.get(cltype, False)
 
     @staticmethod
     def ip_variables(variable):
@@ -62,10 +59,7 @@ class Dicts:
             "any": "any",
         }
 
-        if variable in variables:
-            return variables[variable]
-        else:
-            return False
+        return variables.get(variable, False)
 
     @staticmethod
     def general_options(option: str = None) -> Any:
@@ -108,10 +102,7 @@ class Dicts:
         }
 
         if option:
-            if option in general_options:
-                return option
-            else:
-                return False
+            return option if option in general_options else False
         else:
             return general_options
 
@@ -444,10 +435,7 @@ class Dicts:
         }
 
         if option:
-            if option in payload_detection:
-                return option
-            else:
-                return False
+            return option if option in payload_detection else False
         else:
             return payload_detection
 
@@ -546,10 +534,7 @@ class Dicts:
         }
 
         if option:
-            if option in non_payload_detect:
-                return option
-            else:
-                return False
+            return option if option in non_payload_detect else False
         else:
             return non_payload_detect
 
@@ -599,10 +584,7 @@ class Dicts:
         }
 
         if option:
-            if option in post_detect:
-                return option
-            else:
-                return False
+            return option if option in post_detect else False
         else:
             return post_detect
 
@@ -657,10 +639,7 @@ class Dicts:
         }
 
         if option:
-            if option in content_modifiers:
-                return option
-            else:
-                return False
+            return option if option in content_modifiers else False
         else:
             return content_modifiers
 
@@ -669,10 +648,7 @@ class Dicts:
 
         threshold = {"threshold"}
 
-        if option in threshold:
-            return option
-        else:
-            return False
+        return option if option in threshold else False
 
     def options(self, option):
 

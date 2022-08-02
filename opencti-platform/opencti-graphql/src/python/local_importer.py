@@ -24,8 +24,9 @@ if __name__ == "__main__":
         api_token = sys.argv[2]
         file_path = sys.argv[3]
         config_file_path = (
-            os.path.dirname(os.path.abspath(__file__)) + "/../../" + file_path
+            f"{os.path.dirname(os.path.abspath(__file__))}/../../{file_path}"
         )
+
         testLocalImporter = TestLocalImporter(api_url, api_token, config_file_path)
         testLocalImporter.inject()
     except Exception as e:

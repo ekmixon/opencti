@@ -144,7 +144,7 @@ class Consumer(Thread):  # pylint: disable=too-many-instance-attributes
         # Set the API headers
         applicant_id = data["applicant_id"]
         self.api.set_applicant_id_header(applicant_id)
-        work_id = data["work_id"] if "work_id" in data else None
+        work_id = data.get("work_id")
         # Execute the import
         self.processing_count += 1
         content = "Unparseable"
@@ -155,7 +155,7 @@ class Consumer(Thread):  # pylint: disable=too-many-instance-attributes
                 if "entities_types" in data and len(data["entities_types"]) > 0
                 else None
             )
-            update = data["update"] if "update" in data else False
+            update = data.get("update", False)
             processing_count = self.processing_count
             if self.processing_count == PROCESSING_COUNT:
                 processing_count = None  # type: ignore
